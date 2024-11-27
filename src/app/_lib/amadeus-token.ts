@@ -1,27 +1,46 @@
 import axios from "axios";
-let qs = require("qs");
+const qs = require("qs");
 
 export async function getTokens() {
-    let data = qs.stringify({
-        client_id: "roCAGZF86xv9vj4oPYXgIhXWEvxEWY1s",
-        client_secret: "2NmjaoE1fpqdCzbT",
+    const data = qs.stringify({
+        client_id: "TJy1k1B0jRs1ralwaBphHTlGJjGaYiR7",
+        client_secret: "DGBeMzJny3gFpGN5",
         grant_type: "client_credentials"
     });
 
-    let config = {
+    const config = {
         method: "post",
-        maxBodyLength: Infinity,
-        url: "https://test.api.amadeus.com/v1/security/oauth2/token?client_id=roCAGZF86xv9vj4oPYXgIhXWEvxEWY1s&client_secret=2NmjaoE1fpqdCzbT&grant_type=client_credentials",
+        url: "https://test.api.amadeus.com/v1/security/oauth2/token",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
         data: data
     };
 
+    interface TokenResponse {
+        access_token: string;
+        token_type: string;
+        expires_in: number;
+        state: string;
+    }
+
+    interface TokenError {
+        error: string;
+        error_description: string;
+    }
+
     try {
-        const response = await axios.request(config);
-        return JSON.stringify(response.data.access_token);
-    } catch (error) {
-        console.log(error);
+        const response = await axios(config);
+        const tokenData: TokenResponse = response.data;
+        return tokenData;
+    } catch (error: any) {
+        if (error.response && error.response.data) {
+            const errorData: TokenError = error.response.data;
+            console.error("Error:", errorData.error);
+            console.error("Description:", errorData.error_description);
+        } else {
+            console.error("An unexpected error occurred:", error.message);
+        }
+        throw error;
     }
 }

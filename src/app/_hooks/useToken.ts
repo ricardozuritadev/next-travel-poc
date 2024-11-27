@@ -1,9 +1,14 @@
-import { getTokens } from "@/app/_lib/amadeus-token";
+"use client";
+
+import { useContext } from "react";
+import { TokenContext } from "@/app/_context/token.context";
 
 export function useToken() {
-    const token = setTimeout(() => {
-        getTokens();
-    }, 1500);
+    const contextValue = useContext(TokenContext);
 
-    console.log("=> token: ", token);
+    if (Object.entries(contextValue).length === 0) {
+        throw new Error("useTheme must be called from within an TokenContextProvider");
+    }
+
+    return contextValue;
 }

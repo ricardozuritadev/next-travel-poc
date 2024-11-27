@@ -2,6 +2,7 @@ import "@/app/_styles/index.scss";
 
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import TokenContextProvider from "./_context/token.context";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -22,11 +23,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${poppins.className}`}>
-                <header>
-                    <nav>Navbar Testing</nav>
-                </header>
+                <TokenContextProvider>
+                    <header>
+                        <nav>Navbar Testing</nav>
+                    </header>
 
-                {children}
+                    {children}
+                </TokenContextProvider>
             </body>
         </html>
     );
