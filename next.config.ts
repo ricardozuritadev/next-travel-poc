@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     sassOptions: {
-        compiler: "sass-embedded"
+        silenceDeprecations: ["legacy-js-api"]
     }
 };
 

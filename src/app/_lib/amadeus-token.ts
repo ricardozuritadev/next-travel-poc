@@ -32,7 +32,7 @@ export async function getTokens() {
     try {
         const response = await axios(config);
         const tokenData: TokenResponse = response.data;
-        return tokenData;
+        return tokenData.access_token;
     } catch (error: any) {
         if (error.response && error.response.data) {
             const errorData: TokenError = error.response.data;

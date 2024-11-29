@@ -23,13 +23,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${poppins.className}`}>
-                <TokenContextProvider>
-                    <header>
-                        <nav>Navbar Testing</nav>
-                    </header>
+                <header>
+                    <nav>Navbar Testing</nav>
+                </header>
 
-                    {children}
-                </TokenContextProvider>
+                {children}
             </body>
         </html>
     );
