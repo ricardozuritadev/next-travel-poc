@@ -7,6 +7,7 @@ type SliderCardProps = {
     price: { amount?: string; currencyCode?: string };
     minimumDuration: string;
     description: string | null;
+    index: number;
 };
 
 const SliderCard: React.FC<SliderCardProps> = ({
@@ -15,13 +16,15 @@ const SliderCard: React.FC<SliderCardProps> = ({
     title,
     price,
     minimumDuration,
-    description
+    description,
+    index
 }) => {
     return (
-        <div className="slider-card">
-            <div className="slider-card__image">
+        <div className={index == 0 ? "slider-card selected" : "slider-card"}>
+            <a href={`/activity/${_id}`} className="slider-card__image">
                 <img className="slider-image" src={image} alt={title} />
-            </div>
+            </a>
+
             <h3 className="slider-card__title">{title}</h3>
 
             <div className="slider-card__price">

@@ -13,14 +13,14 @@ export default async function Home() {
 
     const cityActivities = JSON.parse(activities).data;
 
-    // console.log("=> activities: ", activities);
-    // console.log("=> cityCoordinates: ", cityCoordinates);
-    // console.log("=> cityActivities: ", cityActivities);
-
     return (
         <>
             <div>main page</div>
-            <Slider title="Explore Our Popular Destinantions" data={cityActivities} />
+            <Slider
+                title="Explore Our Popular Destinantions"
+                data={cityActivities}
+                id="activitiesSlider"
+            />
         </>
     );
 }

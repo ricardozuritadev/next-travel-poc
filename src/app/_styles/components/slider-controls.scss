@@ -1,0 +1,26 @@
+//TODO: Create a separate file for the button component
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    &__button {
+        width: 5rem;
+        height: 5rem;
+        background-color: #fa8b02;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        .button-arrow {
+            stroke: #ffffff;
+        }
+        &.disabled {
+            background-color: #d3d3d3;
+            pointer-events: none;
+            cursor: not-allowed;
+            .button-arrow {
+                stroke: #333333;
+            }
+        }
+    }
+}
