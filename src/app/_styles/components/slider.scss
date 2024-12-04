@@ -1,0 +1,31 @@
+@use "../mixins.scss" as mixins;
+
+.slider {
+    width: 100%;
+    max-width: 141.9rem;
+    padding: 12.3rem 0;
+    margin: auto;
+    &__header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 3.2rem;
+        font-weight: 800;
+        line-height: 4.368rem;
+        margin-bottom: 8rem;
+    }
+    &__controls-container {
+        width: 12rem;
+    }
+    &__content {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: initial;
+        gap: 3.3rem;
+        overflow: auto;
+        @include mixins.mf-tablet {
+            overflow: hidden;
+        }
+    }
+}
