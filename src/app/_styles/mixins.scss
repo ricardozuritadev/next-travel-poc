@@ -1,0 +1,31 @@
+//Mobile First Media Queries
+
+@mixin mf-mobile-sm {
+    @media only screen and (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin mf-mobile {
+    @media only screen and (min-width: 482px) {
+        @content;
+    }
+}
+
+@mixin mf-tablet {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mf-tablet-big {
+    @media only screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin mf-laptop {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}

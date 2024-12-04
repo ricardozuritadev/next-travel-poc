@@ -1,1 +1,5 @@
+@use "./mixins.scss";
 @use "./global.scss";
+@use "./components/slider.scss";
+@use "./components/slider-card.scss";
+@use "./components/slider-controls.scss";
